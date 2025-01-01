@@ -29,6 +29,14 @@ main > ul.card-list {
   gap: 20px;
 }
 
+form p {
+  margin-block: 5px;
+}
+
+form #add-book-btn {
+  padding: 10px;
+}
+
 .card {
   background-color: #CBA35C;
   padding: 10px;

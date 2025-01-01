@@ -1,4 +1,5 @@
 const myLibrary = [];
+const addBookButton = document.querySelector('#add-book-btn');
 
 function Book( title, author, pages, read) {
   this.title = title;
@@ -39,5 +40,9 @@ function displayLibrary() {
 
 }
 
-initialLibraryData();
+addBookButton.addEventListener("click", (e)=> {
+  
+  e.preventDefault();
+})
+
 displayLibrary();
