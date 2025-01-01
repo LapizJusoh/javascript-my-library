@@ -33,4 +33,5 @@ main > ul.card-list {
   background-color: #CBA35C;
   padding: 10px;
   border-radius: 10px;
+  width: 200px;
 }
