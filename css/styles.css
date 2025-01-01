@@ -19,14 +19,7 @@ body {
 h1 {
   font-size: 3rem;
   font-weight: 600;
-}
-
-main > ul.card-list {
-  list-style: none;
-  margin-block: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  text-align: center;
 }
 
 form p {
@@ -35,6 +28,21 @@ form p {
 
 form #add-book-btn {
   padding: 10px;
+}
+
+.form-div {
+  display: flex;
+  justify-content: center;
+}
+
+.card-list {
+  list-style: none;
+  margin-block: 20px;
+  display: flex;
+  flex-flow: wrap;
+  width: 800px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
