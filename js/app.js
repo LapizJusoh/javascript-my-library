@@ -8,34 +8,62 @@ function Book( title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+  this.read = (!this.read);
+  displayLibrary();
+}
+
 function addBookToLibrary( title, author, page, read ) {
   const addBook = new Book( title, author, page, read );
   myLibrary.push(addBook);
 }
 
+function deleteBook(selectedBook) {
+  myLibrary.splice(selectedBook, 1);
+  displayLibrary();
+}
+
 function displayLibrary() {
 
-  const parentDiv = document.querySelector('.input');
+  const parentDiv = document.querySelector('.output-field');
   const ul = document.createElement('ul');
   ul.setAttribute('class','card-list');
 
-  parentDiv.removeChild(parentDiv.firstChild);
+  if (parentDiv.firstChild) parentDiv.removeChild(parentDiv.firstChild);
+  
   parentDiv.appendChild(ul);
 
   for (let i = 0; i < myLibrary.length; i++) {
 
     const container = document.querySelector('.card-list');
     const li = document.createElement('li');
+    const deleteBtn = document.createElement('button');
+    const readBtn = document.createElement('button');
 
     li.setAttribute("class","card");
+    container.appendChild(li);
+    
     li.innerHTML = `
-        <p>Title: ${myLibrary[i].title}</p>
-        <p>Author: ${myLibrary[i].author}</p>
-        <p>Pages: ${myLibrary[i].pages}</p>
-        <p>Has Read? ${ myLibrary[i].read ? 'Yes' : 'No'}.</p>
+      <p>Title: ${myLibrary[i].title}</p>
+      <p>Author: ${myLibrary[i].author}</p>
+      <p>Pages: ${myLibrary[i].pages}</p>
+      <p>Has Read? ${ myLibrary[i].read ? 'Yes' : 'No'}.</p>
     `;
 
-    container.appendChild(li);
+    deleteBtn.innerHTML = 'Delete';
+    readBtn.innerHTML = 'Read Toggle';
+
+    li.appendChild(deleteBtn);
+    li.appendChild(readBtn);
+
+    deleteBtn.addEventListener("click", () => {
+      deleteBook(i);
+    })
+
+    readBtn.addEventListener("click", () => {
+      myLibrary[i].toggleRead();
+    })
+
   }
 
 }
