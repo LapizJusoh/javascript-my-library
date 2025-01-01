@@ -12,10 +12,32 @@ function addBookToLibrary( titleInput, authorInput, pageInput, readInput ) {
   myLibrary.push(addBook);
 }
 
+function initialLibraryData() {
+  const initBook = new Book("The Hobbit", "JRR Tolkien", 259, true);
+  const initBook2 = new Book("Warhammer2", "GM Workshop", 116, false);
+  myLibrary.push(initBook);
+  myLibrary.push(initBook2);
+}
+
 function displayLibrary() {
 
-  for (let x=0; x < myLibrary.length; x++) {
+  for (let i = 0; i < myLibrary.length; i++) {
 
+    const container = document.querySelector('.card-list');
+    const li = document.createElement('li');
+
+    li.setAttribute("class","card");
+    li.innerHTML = `
+        <p>Title: ${myLibrary[i].title}</p>
+        <p>Author: ${myLibrary[i].author}</p>
+        <p>Pages: ${myLibrary[i].pages}</p>
+        <p>Has Read? ${ myLibrary[i].read.checked ? 'Yes' : 'No'}.</p>
+    `;
+
+    container.appendChild(li);
   }
 
 }
+
+initialLibraryData();
+displayLibrary();
