@@ -1,5 +1,6 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
 * {
@@ -8,3 +9,28 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+main > ul.card-list {
+  list-style: none;
+  margin-block: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: #CBA35C;
+  padding: 10px;
+  border-radius: 10px;
+}
